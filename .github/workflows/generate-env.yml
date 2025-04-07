@@ -1,0 +1,16 @@
+name: Generate .env
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create .env from GitHub Secrets
+        run: |
+          echo "VITE_SECRET_MESSAGE=${{ secrets.MY_SECRET }}" > .env
+      - name: Upload .env
+        uses: actions/upload-artifact@v3
+        with:
+          name: vue-env
+          path: .env
