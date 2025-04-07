@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v3
       - name: Create .env from GitHub Secrets
         run: |
           echo "VITE_SECRET_MESSAGE=${{ secrets.MY_SECRET }}" > .env
