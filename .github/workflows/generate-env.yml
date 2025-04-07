@@ -12,10 +12,10 @@ jobs:
 
       - name: Create .env from GitHub Secrets
         run: |
-          echo "VITE_SECRET_MESSAGE=${{ secrets.MY_SECRET }}" > .env          
+          echo "VITE_SECRET_MESSAGE=${{ secrets.MY_SECRET }}" > env.txt          
 
       - name: Upload .env
         uses: actions/upload-artifact@v4
         with:
           name: vue-env
-          path: .env
+          path: env.txt
