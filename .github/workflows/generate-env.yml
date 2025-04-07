@@ -16,7 +16,7 @@ jobs:
           echo "✅ .env created"
           ls -al
 
-      - name: Debug: Show .env content
+      - name: Show .env content
         run: cat .env || echo ".env not found"
 
       - name: Upload .env
