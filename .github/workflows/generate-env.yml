@@ -12,15 +12,10 @@ jobs:
 
       - name: Create .env from GitHub Secrets
         run: |
-          echo "VITE_SECRET_MESSAGE=${{ secrets.MY_SECRET }}" > .env
-          echo "✅ .env created"
-          ls -al
-
-      - name: Show .env content
-        run: cat .env || echo ".env not found"
+          echo "VITE_SECRET_MESSAGE=${{ secrets.MY_SECRET }}" > .env          
 
       - name: Upload .env
         uses: actions/upload-artifact@v4
         with:
           name: vue-env
-          path: ${{ github.workspace }}/.env
+          path: .env
